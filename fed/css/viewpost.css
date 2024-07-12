@@ -1,0 +1,225 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f0f0f0;
+    --text-color: #333;
+    --card-background: #ffffff;
+    --heart-color-liked: #e74c3c;
+    --heart-color-unliked: #ffffff;
+    --button-hover: #2980b9;
+    --follow-button-hover: #27ae60;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+span {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    flex-grow: 1;
+}
+
+.userCred {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+#userId {
+    font-style: normal;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+#followersCount {
+    font-weight: bold;
+}
+
+#msg {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+#post-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.postBlocks {
+    background-color: var(--card-background);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.postBlocks:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.postBlocks h1 {
+    font-size: 1.4rem;
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.postBlocks p {
+    margin: 10px 0;
+}
+
+.postBlocks hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 15px 0;
+}
+
+.like-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.like-button:hover {
+    transform: scale(1.1);
+}
+
+.like-button::before {
+    content: '\2665'; /* Unicode heart character */
+    font-size: 24px;
+    margin-right: 5px;
+    transition: color 0.3s ease;
+}
+
+.like-button.liked::before {
+    color: var(--heart-color-liked);
+}
+
+.like-button.unliked::before {
+    color: var(--heart-color-unliked);
+    text-shadow: 0 0 2px #000; /* Add a subtle shadow to make it visible on light backgrounds */
+}
+
+.like-count {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.follow-button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.follow-button:hover {
+    background-color: var(--follow-button-hover);
+}
+
+.edit-button, .delete-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 5px;
+}
+
+.edit-button:hover, .delete-button:hover {
+    background-color: var(--button-hover);
+}
+
+.delete-button {
+    background-color: #e74c3c;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+    span {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+
+    .userCred {
+        justify-content: center;
+    }
+
+    .postBlocks {
+        padding: 15px;
+    }
+
+    .postBlocks h1 {
+        font-size: 1.2rem;
+    }
+
+    .edit-button, .delete-button, .follow-button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
